@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Students, Yay!</title>
+  </head>
+  <body>
+    <form action="/students" method="post">
+      <input type="text" name="name" value="" placeholder="Name">
+      <input type="text" name="email" value="" placeholder="Email">
+      <select name="like_js">
+        <option value="true">True</option>
+        <option value="false">False</option>
+      </select>
+      <input type="text" name="spec" value="" placeholder="Specialization">
+      <input type="text" name="fav_candy" value="" placeholder="Favorite Candy">
+      <button type="submit">Submit</button>
+    </form>
+    <ul>
+      {{#students}}
+        <li>
+          <span>{{name}}</span>
+
+          <form action="/students/{{id}}/delete" method="post">
+            <button type="submit">DELETE</button>
+          </form>
+        </li>
+      {{/students}}
+    </ul>
+  </body>
+</html>
